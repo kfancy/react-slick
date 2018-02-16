@@ -7,7 +7,7 @@ import initialState from './initial-state';
 import defaultProps from './default-props';
 import createReactClass from 'create-react-class';
 import classnames from 'classnames';
-import assign from 'object-assign';
+//import assign from 'object-assign';
 
 import { Track } from './track';
 import { Dots } from './dots';
@@ -245,7 +245,7 @@ export var InnerSlider = createReactClass({
       }
     }
 
-    const listStyle = assign({}, verticalHeightStyle, centerPaddingStyle);
+    const listStyle = Object.assign({}, verticalHeightStyle, centerPaddingStyle);
 
     return (
       <div
