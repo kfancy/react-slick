@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import assign from 'object-assign';
+//import assign from 'object-assign';
 import classnames from 'classnames';
 
 
@@ -84,7 +84,7 @@ var renderSlides = function (spec) {
     } else {
       child = (<div></div>);
     }
-    var childStyle = getSlideStyle(assign({}, spec, {index: index}));
+    var childStyle = getSlideStyle(Object.assign({}, spec, {index: index}));
     const slideClass = child.props.className || ''
 
     const onClick = function(e) {
@@ -98,9 +98,9 @@ var renderSlides = function (spec) {
     slides.push(React.cloneElement(child, {
       key: 'original' + getKey(child, index),
       'data-index': index,
-      className: classnames(getSlideClasses(assign({index: index}, spec)), slideClass),
+      className: classnames(getSlideClasses(Object.assign({index: index}, spec)), slideClass),
       tabIndex: '-1',
-      style: assign({outline: 'none'}, child.props.style || {}, childStyle),
+      style: Object.assign({outline: 'none'}, child.props.style || {}, childStyle),
       onClick
     }));
 
@@ -114,8 +114,8 @@ var renderSlides = function (spec) {
         preCloneSlides.push(React.cloneElement(child, {
           key: 'precloned' + getKey(child, key),
           'data-index': key,
-          className: classnames(getSlideClasses(assign({index: key}, spec)), slideClass),
-          style: assign({}, child.props.style || {}, childStyle),
+          className: classnames(getSlideClasses(Object.assign({index: key}, spec)), slideClass),
+          style: Object.assign({}, child.props.style || {}, childStyle),
           onClick
         }));
       }
@@ -125,8 +125,8 @@ var renderSlides = function (spec) {
         postCloneSlides.push(React.cloneElement(child, {
           key: 'postcloned' + getKey(child, key),
           'data-index': key,
-          className: classnames(getSlideClasses(assign({index: key}, spec)), slideClass),
-          style: assign({}, child.props.style || {}, childStyle),
+          className: classnames(getSlideClasses(Object.assign({index: key}, spec)), slideClass),
+          style: Object.assign({}, child.props.style || {}, childStyle),
           onClick
         }));
       }
